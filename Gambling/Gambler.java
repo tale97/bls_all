@@ -7,7 +7,10 @@ public class Gambler
   
   
   public Gambler(String a, double b, boolean c)
-  {name = a; balance = b; isHouse = c;
+  {
+    name = a; 
+    balance = b; 
+    isHouse = c;
     
   }
   
@@ -22,8 +25,12 @@ public class Gambler
   //current player loses the game
   //update their balance total
   public void loseGame()
-  {if (isHouse) {balance-=12;}
-    else {balance-=1;}
+  {
+    if (isHouse) {
+      balance-=12;
+    }    else {
+      balance-=1;
+    }
     
   }
   
