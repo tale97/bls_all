@@ -1,0 +1,30 @@
+public class MovableCircle implements Movable {
+  private MovablePoint center;
+  private int radius;
+  
+  public MovableCircle(int x, int y, int z){
+    center = new MovablePoint(x,y);
+    radius = z;
+  }
+  
+    public String toString() {
+   return "center at ( "+center.getx()+", " +center.gety()+" ) and radius "+radius; 
+  }
+  
+   public void moveUp(){
+     center.gety()+=1;
+  }
+
+  public void moveDown(){
+    center.gety()-=1;
+  }
+
+
+
+  public void moveLeft() {center.getx()-=1;}
+
+
+
+public void moveRight() {center.getx()+=1;}
+  
+}
