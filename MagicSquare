@@ -1,0 +1,30 @@
+public class MagicSquare {
+    
+  public int rowSum(int[][] square, int row){
+    int sum=0;
+      for (int j=0; j<square[row].length; j++){
+        sum+=square[row][j];}
+      return sum;
+  }
+      
+      public int colSum(int[][] square, int col){
+        int sum=0;
+      for (int j=0; j<square.length; j++){
+        sum+=square[j][col];}
+      return sum;
+      }
+      
+      
+      public boolean diagSums(int[][] square, int sum){
+        int minor_sum=0;
+        int major_sum=0;
+        for (int i=0;i<square.length;i++){
+         minor_sum+=square[i][i]; 
+        }
+        for (int i=0;i<square.length;i++){
+          major_sum+=square[i][square.length-1-i];
+        }
+        if (minor_sum==major_sum) {return true;}
+        return false;
+      }
+}
