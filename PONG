@@ -1,0 +1,73 @@
+int x; 
+int y;  
+int xspeed=15;
+int yspeed=15;
+int a;
+int b;
+int c; 
+int d;
+int z=20;
+
+void setup() {
+  size(1200,600);
+  x=400;
+  y=300;
+  a=30;
+  b=height/2;
+  c=width-60;
+  d=height/2;
+}
+void draw() {
+  background(255);
+  fill(255,0,0);
+  ellipse(x,y,80,80);
+  fill(0,255,0);
+  
+  rect(a,b,30,120);
+  x=x+xspeed;
+  y=y+yspeed;
+  
+  rect(c,d,30,120);
+  
+  if(x>width-40 || x<40)
+  xspeed=xspeed*(-1);
+  if(y>height-40 || y<40)
+  yspeed=yspeed*(-1);
+  
+  if((x-40)<=a+30 && (y>=b && y<b+120)) {
+    xspeed=xspeed*(-1);
+  }
+  if((x+40)>=c && (y>=d && y<d+120)) {
+    xspeed=xspeed*(-1);
+  }
+  
+  if(x-40<=0 || x+40>=width) {
+    x=width/2;
+  }
+  if(xspeed<0){
+    if (b+60>=y){b=b-z;}
+    else{b=b+z;}
+    }
+    if(xspeed>0){
+    if (d+60>=y){d=d-z;}
+    else{d=d+z;}
+    }
+    
+  }
+  
+
+
+
+void keyPressed()
+{
+  if (keyCode == UP) { 
+    d-=40;
+  }
+  if (keyCode == DOWN) {
+    d+=40;
+  }
+  if(key == 'w')
+    b-=40;
+  if(key == 's')
+    b+=40;
+}
