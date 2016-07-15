@@ -15,16 +15,16 @@ TestSkill.prototype = Object.create(AlexaSkill.prototype);
 TestSkill.prototype.constructor = TestSkill;
 
 TestSkill.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-    console.log("onSessionStarted requestId: " + sessionStartedRequest.requestId
+    //console.log("onSessionStarted requestId: " + sessionStartedRequest.requestId
         + ", sessionId: " + session.sessionId);
 };
 TestSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
-    console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
+    //console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
     // any cleanup logic goes here
 };
 
-TestSkill.prototype.eventHandlers.onLaunch = function (launchRequest, session) {
-    console.log("TestSkill onLaunch requestId: " + launchRequest.requestId
+TestSkill.prototype.eventHandlers.onLaunch = function (launchRequest, session,response) {
+    //console.log("TestSkill onLaunch requestId: " + launchRequest.requestId
         + ", sessionId: " + session.sessionId);
         
         handleTest(response);
