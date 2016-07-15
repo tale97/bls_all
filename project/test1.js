@@ -1,4 +1,4 @@
-{{{{function}
+
 var APP_ID = undefined; 
 var AlexaSkill = require('./AlexaSkill');
 var FACTS = [
@@ -19,7 +19,7 @@ TestSkill.prototype.eventHandlers.onSessionStarted = function (sessionStartedReq
         + ", sessionId: " + session.sessionId);
 };
 TestSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
-    //console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
+    console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
     // any cleanup logic goes here
 };
 
