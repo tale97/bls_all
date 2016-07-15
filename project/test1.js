@@ -7,7 +7,7 @@ var FACTS = [
     "4 plus 4 is 8",
     "8 plus 8 is 16","16 plus 16 is 32"
 ];
-var HelloWorld = function () {
+var TestSkill = function () {
     AlexaSkill.call(this, APP_ID);
 };
 
