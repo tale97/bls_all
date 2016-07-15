@@ -1,4 +1,4 @@
-
+{{{{function}
 var APP_ID = undefined; 
 var AlexaSkill = require('./AlexaSkill');
 var FACTS = [
@@ -18,6 +18,10 @@ TestSkill.prototype.eventHandlers.onSessionStarted = function (sessionStartedReq
     console.log("onSessionStarted requestId: " + sessionStartedRequest.requestId
         + ", sessionId: " + session.sessionId);
 };
+TestSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
+    //console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
+    // any cleanup logic goes here
+};
 
 TestSkill.prototype.eventHandlers.onLaunch = function (launchRequest, session) {
     console.log("TestSkill onLaunch requestId: " + launchRequest.requestId
@@ -25,6 +29,28 @@ TestSkill.prototype.eventHandlers.onLaunch = function (launchRequest, session) {
         
         handleTest(response);
 };
+
+
+TestSkill.prototype.intentHandlers = {
+    "TestIntent": function (intent,session,response){
+        handleTest(response);
+    },
+    
+      "AMAZON.HelpIntent": function (intent, session, response) {
+        response.ask("You can say tell me a space fact, or, you can say exit... What can I help you with?", "What can I help you with?");
+    },
+
+    "AMAZON.StopIntent": function (intent, session, response) {
+        var speechOutput = "Goodbye";
+        response.tell(speechOutput);
+    },
+
+    "AMAZON.CancelIntent": function (intent, session, response) {
+        var speechOutput = "Goodbye";
+        response.tell(speechOutput);
+    }
+};
+
 
 function handleTest(response){
     var index = Math.floor(Math.random() * FACTS.length);
@@ -35,16 +61,6 @@ function handleTest(response){
     response.tellWithCard(speechOutput, cardTitle, speechOutput);
     
 }
-
-TestSkill.prototype.intentHandlers = {
-    "TestIntent": function (intent,session,response){
-        handleTest(response);
-        
-    }
-    
-};
-
-
 
 
 
